@@ -19,7 +19,7 @@ class CommonTest {
     private LoginPage loginPage;
 
     @BeforeAll
-    void SetUp() throws TwitterException {
+    void setUp() throws TwitterException {
         twitterApi = new TwitterApi();
     }
 
@@ -45,7 +45,7 @@ class CommonTest {
     }
 
     @AfterAll
-    void TearDown() {
+    void tearDown() {
         loginPage.closeBrowser();
     }
 }
