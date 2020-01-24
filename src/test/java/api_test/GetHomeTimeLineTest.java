@@ -16,13 +16,13 @@ class GetHomeTimeLineTest {
     private List<Status> statuses;
 
     @BeforeAll
-    void SetUp() throws TwitterException{
+    void setUp() throws TwitterException{
         TwitterApi twitterApi = new TwitterApi();
         statuses = twitterApi.getHomeTimeLine();
     }
 
     @Test
-    void CheckCreatedAtDateIsBeforeCurrentDate() {
+    void checkCreatedAtDateIsBeforeCurrentDate() {
         for (Status status : statuses) {
 
             assertTrue(status.getCreatedAt().compareTo(new Date()) < 0,
@@ -31,7 +31,7 @@ class GetHomeTimeLineTest {
     }
 
     @Test
-    void CheckRetweetCountValueIsNotNegativeNumber(){
+    void checkRetweetCountValueIsNotNegativeNumber(){
         for (Status status : statuses) {
 
             assertTrue(status.getRetweetCount() >= 0,
@@ -40,7 +40,7 @@ class GetHomeTimeLineTest {
     }
 
     @Test
-    void CheckTweetTextIsNotEmpty(){
+    void checkTweetTextIsNotEmpty(){
         for (Status status : statuses) {
 
             assertTrue(!status.getText().equals(""),
