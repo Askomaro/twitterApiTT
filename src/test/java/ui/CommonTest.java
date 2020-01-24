@@ -24,7 +24,7 @@ class CommonTest {
     }
 
     @Test
-    void FunctionalTestBasedOnApi() throws TwitterException {
+    void functionalTestBasedOnApi() throws TwitterException {
         String statusText = "test";
         Status createdStatus = twitterApi.createStatus(statusText);
 
