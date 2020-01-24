@@ -17,19 +17,19 @@ class PostStatusesUpdate {
     private String statusText = "test";
 
     @BeforeAll
-    void SetUp() throws TwitterException {
+    void setUp() throws TwitterException {
         twitterApi = new TwitterApi();
         status = twitterApi.createStatus(statusText);
     }
 
     @Test
-    void CheckStatusText() throws TwitterException{
+    void checkStatusText() throws TwitterException{
         String result = twitterApi.getStatus(status.getId()).getText();
         assertEquals(statusText, result);
     }
 
     @Test
-    void TweetDuplicationCauses403Error() {
+    void tweetDuplicationCauses403Error() {
         TwitterException thrown =
                 assertThrows(TwitterException.class,
                         () -> twitterApi.createStatus(statusText),
@@ -40,7 +40,7 @@ class PostStatusesUpdate {
     }
 
     @AfterAll
-    void TearDown() throws TwitterException{
+    void tearDown() throws TwitterException{
         twitterApi.destroyStatus(status.getId());
     }
 }
