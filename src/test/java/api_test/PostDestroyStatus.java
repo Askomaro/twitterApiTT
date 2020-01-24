@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class PostDestroyStatus {
     @Test
-    void CheckStatusIsDeleted() throws TwitterException {
+    void сheckStatusIsDeleted() throws TwitterException {
         // arrange
         TwitterApi twitterApi = new TwitterApi();
         long statusId = twitterApi.createStatus("test").getId();
